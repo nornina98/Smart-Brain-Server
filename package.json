@@ -14,7 +14,7 @@
   "author": "nornina",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.19"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
