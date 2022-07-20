@@ -7,18 +7,18 @@ app.use(bodyParser.json());
 const database = {
   users: [
     {
-      id: "001",
+      id: "1",
       name: "kasyaf",
-      email: "kasyaf1234@gmail.com",
-      password: "kasyaf1234",
+      email: "kasyaf@gmail.com",
+      password: "123456",
       entries: 0,
       joined: new Date(),
     },
     {
-      id: "002",
+      id: "2",
       name: "muya",
-      email: "muya1234@gmail.com",
-      password: "muya1234",
+      email: "muya@gmail.com",
+      password: "123456",
       entries: 0,
       joined: new Date(),
     },
