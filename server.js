@@ -21,16 +21,9 @@ const database = {
       id: "2",
       name: "muya",
       email: "muya@gmail.com",
-      password: "123456",
+      password: "abcdef",
       entries: 0,
       joined: new Date(),
-    },
-  ],
-  login: [
-    {
-      id: 999,
-      hash: "",
-      email: "kasyaf@gmail.com",
     },
   ],
 };
