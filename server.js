@@ -3,6 +3,24 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 
+// The knex module is itself a function which takes a configuration object for Knex, accepting a few parameters
+const knex = require("knex");
+const db = knex({
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
+    user: "postgres",
+    password: "#ikram890914X",
+    database: "postgres",
+  },
+});
+
+db.from("*")
+  .from("users")
+  .then((data) => {
+    console.log(data);
+  });
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -64,14 +82,9 @@ app.post("/register", (req, res) => {
   bcrypt.hash(password, null, null, function (err, hash) {
     console.log(hash);
   });
-  database.users.push({
-    id: "3",
-    name: name,
-    email: email,
-    password: password,
-    entries: 0,
-    joined: new Date(),
-  });
+  db("users")
+    .insert({ email: email, name: name, joined: new Date() })
+    .then(console.log(""));
   res.json(database.users[database.users.length - 1]);
 });
 
