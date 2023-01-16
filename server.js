@@ -83,9 +83,12 @@ app.post("/register", (req, res) => {
     console.log(hash);
   });
   db("users")
+    .returning("*")
     .insert({ email: email, name: name, joined: new Date() })
-    .then(console.log(""));
-  res.json(database.users[database.users.length - 1]);
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => res.status(400).json("unable to register"));
 });
 
 app.listen(3000, () => {
